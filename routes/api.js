@@ -11,7 +11,13 @@ module.exports = function (app) {
       const text = req.body.text;
       const locale = req.body.locale;
 
-      if (!text) {
+      if (text == null || locale == null) {
+        return res.status(400).send({
+          error: 'Required field(s) missing'
+        })
+      }
+
+      if (text === "") {
         return res.status(400).send({
           error: 'No text to translate'
         })

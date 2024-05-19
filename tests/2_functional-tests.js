@@ -39,7 +39,7 @@ suite('Functional Tests', () => {
          .send({locale: 'american-to-british'})
          .end((err , res) => {
             assert.equal(res.status, 400);
-            assert.equal(res.body.error, 'No text to translate');
+            assert.equal(res.body.error, 'Required field(s) missing');
             
         })
         done();
@@ -51,7 +51,7 @@ suite('Functional Tests', () => {
          .send({text: 'Like a high tech Rube Goldberg machine.'})
          .end((err , res) => {
             assert.equal(res.status, 400);
-            assert.equal(res.body.error, 'Invalid value for locale field');
+            assert.equal(res.body.error, 'Required field(s) missing');
             
         })
         done();
